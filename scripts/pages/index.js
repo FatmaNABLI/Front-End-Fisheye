@@ -1,14 +1,4 @@
     async function getPhotographers() {
-       /* fetch('data/photographers.json')
-        .then(function(response) {
-            if(response.ok){
-                const data = response.json();
-                console.log(data);
-            }else{
-                console.log("Erreur!")
-            }
-            
-        });*/
         // Récupération des photographers depuis le fichier JSON
         const reponse = await fetch('data/photographers.json');
         const data = await reponse.json();
