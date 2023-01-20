@@ -3,10 +3,6 @@ body {
     margin: auto;
 }
 
-#contact_modal {
-    display: none;
-}
-
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
@@ -36,6 +32,11 @@ body {
     cursor: pointer;
 }
 
+#contact_modal {
+    display: none;
+
+}
+
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
@@ -46,11 +47,19 @@ body {
     justify-content: space-between;
     padding: 35px;
     margin: auto;
+    /*Positionnement*/
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+    z-index: 2;
+
 }
 
 .modal header {
     justify-content: space-between;
     width: 100%;
+    margin-bottom: 40px;
 }
 
 .modal header img {
@@ -60,7 +69,7 @@ body {
 .modal header h2 {
     font-size: 64px;
     font-weight: normal;
-    text-align: center;
+    /*text-align: center;*/
 }
 
 form {
@@ -83,11 +92,15 @@ form div {
     margin-bottom: 26px;
 }
 
-form input {
+form input,
+form textarea {
     width: 100%;
-    height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+form input {
+    height: 68px;
 }
 
 /*Mon CSS*/
