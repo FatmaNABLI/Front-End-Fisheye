@@ -2,15 +2,20 @@ function photographerFactoryBase(data) {
     const {name, portrait } = data;
 
     const picture = `assets/photographers/${portrait}`;
+    /*function getPhoto(){
+        const img = document.createElement( 'img' );
+        img.setAttribute("src", picture);
+        return img;
+    }*/
 
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
-        const h2 = document.createElement( 'h2' );
-        h2.textContent = name;
+        const h1 = document.createElement( 'h1' );
+        h1.textContent = name;
+        article.appendChild(h1);
         article.appendChild(img);
-        article.appendChild(h2);
         return (article);
     }
     async function getRealisations(){
@@ -23,7 +28,6 @@ function photographerFactoryBase(data) {
         return ({
             realisations: [...realisations]})
    }
-
 
     return { name, picture, getUserCardDOM , getRealisations }
 }

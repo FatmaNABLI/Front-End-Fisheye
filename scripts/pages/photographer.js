@@ -15,15 +15,32 @@ async function getPhotographer(id) {
  }
  async function displayData(photographer) {
     const photographerSection = document.querySelector(".photograph-header");
-    const mediasSection = document.querySelector(".media");
-    console.log(photographer);
+    const contact_button = document.querySelector(".contact_button");
+    
     const photographerModel = photographerFactoryBase(photographer);
-    const userCardDOM = photographerModel.getUserCardDOM();
-    const { realisations } = await photographerModel.getRealisations();
+    const h1 = document.createElement( 'h1' );
+    h1.textContent = photographerModel.name;
+    photographerSection.insertBefore(h1, contact_button );
 
-    photographerSection.appendChild(userCardDOM);       
+    const img = document.createElement( 'img' );
+    img.setAttribute("src", photographerModel.picture)
+    img.setAttribute("alt", photographerModel.name)
+    photographerSection.appendChild(img);
+    //const userCardDOM = photographerModel.getUserCardDOM();
+    //photographerSection.appendChild(userCardDOM);  
+
+    
+    const mediasSection = document.querySelector(".media");
+    const { realisations } = await photographerModel.getRealisations();
     realisations.forEach(element =>  {
-        const mediaModel = mediaFactory(element, photographer.name);
+        //Le nom du photographe est nécessaire pour avoir le chemin de l'image
+        let mediaModel={};
+        if(element.hasOwnProperty('image')){
+            mediaModel = mediaFactory(element, 'image', photographer.name);
+        }else{
+            mediaModel = mediaFactory(element, 'video', photographer.name);
+        }
+       
         const mediaCardDOM = mediaModel.getMediaCardDOM();
         mediasSection.appendChild(mediaCardDOM);
     });
