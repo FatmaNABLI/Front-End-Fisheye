@@ -11,16 +11,28 @@ function mediaFactory(data, type, photographerName) {
     else if(type == "video"){
          chemin = `assets/images/${newFirst}/${data.video}`
     }
-    function getMediaCardDOM() {
+    function getMediaCardDOM(index) {
         const article = document.createElement( 'article' );
         article.setAttribute('class', 'media-card');
         if (type == 'image'){
             const img = document.createElement( 'img' );
+            img.setAttribute('class','media-card-content');
             img.setAttribute("src", chemin);
+            img.setAttribute('alt',title);
+            img.addEventListener('click',function(){
+                openLighBox();
+                currentSlide(index);
+            });
             article.appendChild(img);
         }else {
             const video = document.createElement( 'video' );
             video.setAttribute("controls","controls");
+            video.setAttribute('class','media-card-content');
+            video.setAttribute('alt',title);
+            video.addEventListener('click',function(){
+                openLighBox();
+                currentSlide(index);
+            });
             const source = document.createElement("source");
             source.setAttribute('src', chemin);
             video.appendChild(source);

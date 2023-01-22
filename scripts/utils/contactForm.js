@@ -19,7 +19,7 @@ function displayModal() {
 
 //Function to close modal
 
-function closeModal() {
+function closeModal(id) {
     //const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
 }

@@ -32,7 +32,7 @@ async function getPhotographer(id) {
     
     const mediasSection = document.querySelector(".media");
     const { realisations } = await photographerModel.getRealisations();
-    realisations.forEach(element =>  {
+    realisations.forEach((element,index) =>  {
         //Le nom du photographe est nécessaire pour avoir le chemin de l'image
         let mediaModel={};
         if(element.hasOwnProperty('image')){
@@ -40,10 +40,11 @@ async function getPhotographer(id) {
         }else{
             mediaModel = mediaFactory(element, 'video', photographer.name);
         }
-       
-        const mediaCardDOM = mediaModel.getMediaCardDOM();
+        const mediaCardDOM = mediaModel.getMediaCardDOM(index);
         mediasSection.appendChild(mediaCardDOM);
     });
+
+    //document.querySelectorAll(".media-card img").forEach((img,index) => img.addEventListener("click", openLighBox));
 };
 
 async function init() {

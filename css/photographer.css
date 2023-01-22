@@ -32,19 +32,29 @@ body {
     cursor: pointer;
 }
 
-#contact_modal {
+#contact_modal,
+#lightbox {
     display: none;
 
 }
 
-.modal {
-    border-radius: 5px;
+#lightbox .modal {
     background-color: #DB8876;
-    width: 50%;
+}
+
+#contact_modal .modal {
+    background-color: #DB8876;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+}
+
+#lightbox .modal,
+#contact_modal .modal {
+    border-radius: 5px;
+    width: 50%;
+
     padding: 35px;
     margin: auto;
     /*Positionnement*/
@@ -54,6 +64,10 @@ body {
     transform: translateX(-50%);
     z-index: 2;
 
+}
+
+#lightBox .modal header {
+    text-align: right;
 }
 
 .modal header {
@@ -128,10 +142,58 @@ form input {
 .media article video {
     width: 100%;
     height: 300px;
-    object-fit: cover
+    object-fit: cover;
+    cursor: pointer;
 }
 
 .media-card-infos {
     display: flex;
     justify-content: space-between;
+}
+
+/*LightBox*/
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    color: #901C1C;
+    top: 70%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    font-weight: bold;
+    font-size: 64px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* The Close Button */
+#lightbox .modal-close-btn {
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.carousel-item-img {
+    width: 400px;
+    height: 300px;
 }
