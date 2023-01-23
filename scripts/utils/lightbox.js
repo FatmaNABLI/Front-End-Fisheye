@@ -2,7 +2,7 @@
 const lightbox= document.getElementById("lightbox");
 const prevBtn = document.querySelector("prev");
 const nextBtn = document.querySelector("next");
-let currentItemPosition = 0;
+let cslideIndex = 0;
 
 
 //const main = document.getElementById("main");
@@ -18,7 +18,6 @@ function openLighBox(){
     lightbox.style.display = "block";
 }
 
-var slideIndex = 1;
 function currentSlide(index){
     showSlides(index);
 }
@@ -44,6 +43,23 @@ function showSlides(n) {
     slides[slideIndex].style.display = "block";
     //captionText.innerHTML = dots[slideIndex-1].alt;
   }
+
+// Close modal when espace key is pressed
+
+document.addEventListener('keydown', (e) => {
+    var code = e.code;
+    //lightbox.getAttribute("aria-hidden") == "false" &
+    if ( code === 'Escape') {
+        closeLightbox();
+    }
+    if (code == 'ArrowRight'){
+        nextSlide();
+    }
+    if(code == 'ArrowLeft'){
+        previousSlide();
+    }
+   
+  }, false);
 
 function initLightBox(){
     const carouselContent = document.querySelector(".carousel-content");

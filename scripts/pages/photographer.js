@@ -47,6 +47,45 @@ async function getPhotographer(id) {
     //document.querySelectorAll(".media-card img").forEach((img,index) => img.addEventListener("click", openLighBox));
 };
 
+const byTitle = (a,b) => {
+    aTitle = a.firstChild.getAttribute('alt');
+    bTitle = b.firstChild.getAttribute('alt');
+    console.log(bTitle);
+    return (aTitle.localeCompare(bTitle));
+};
+
+const byPopularity = (a,b) =>{
+    aLikes = a.firstChild.getAttribute('data-likes');
+    bLikes = b.firstChild.getAttribute('data-likes');
+    return (aLikes - bLikes);
+};
+
+const byDate = (a,b) =>{
+    aDate = new Date (a.firstChild.getAttribute('data-date')).getTime();
+    bDate = new Date (b.firstChild.getAttribute('data-date')).getTime();
+    console.log(aDate);
+    console.log(bDate);
+    console.log(aDate - bDate);
+
+    return (aDate-bDate);
+};
+
+
+function sortMediaCards(Criteria){
+    const elements = document.querySelectorAll(".media-card");
+    const items = Array.from(elements);
+    items.sort(Criteria);
+    /*items.forEach(elt => {
+        console.log(elt.firstChild.getAttribute('data-date'));
+    });*/
+    console.log(items);
+    const mediasSection = document.querySelector(".media");
+    items.forEach(elt => {
+        mediasSection.appendChild(elt);
+
+    });
+}
+
 async function init() {
     // Récupère les datas des photographes
     const  photographer  = await getPhotographer(id);

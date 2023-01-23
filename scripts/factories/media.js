@@ -19,6 +19,8 @@ function mediaFactory(data, type, photographerName) {
             img.setAttribute('class','media-card-content');
             img.setAttribute("src", chemin);
             img.setAttribute('alt',title);
+            img.setAttribute('data-likes',likes);
+            img.setAttribute('data-date' , date);
             img.addEventListener('click',function(){
                 openLighBox();
                 currentSlide(index);
@@ -29,6 +31,8 @@ function mediaFactory(data, type, photographerName) {
             video.setAttribute("controls","controls");
             video.setAttribute('class','media-card-content');
             video.setAttribute('alt',title);
+            video.setAttribute('data-likes',likes);
+            video.setAttribute('data-date' , date);
             video.addEventListener('click',function(){
                 openLighBox();
                 currentSlide(index);
