@@ -17,15 +17,10 @@ for (i = 0; i < l; i++) {
     /* For each option in the original select element,
     create a new DIV that will act as an option item: */
     c = document.createElement("DIV");
-    
     c.innerHTML = selElmnt.options[j].innerHTML;
-    c.setAttribute("data-index",j);
     c.addEventListener("click", function(e) {
-      //console.log(e.target);
-      sortMediaCards(e.target.getAttribute("data-index"));
         /* When an item is clicked, update the original select box,
         and the selected item: */
-        
         var y, i, k, s, h, sl, yl;
         s = this.parentNode.parentNode.getElementsByTagName("select")[0];
         sl = s.length;
@@ -44,11 +39,6 @@ for (i = 0; i < l; i++) {
           }
         }
         h.click();
-    });
-    
-    c.setAttribute("onclick" , ()=> {
-      console.log(c.textContent);
-    console.log(c.getAttribute('data-index'));
     });
     b.appendChild(c);
   }

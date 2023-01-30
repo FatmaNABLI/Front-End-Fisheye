@@ -47,14 +47,30 @@ function mediaFactory(data, type, photographerName) {
         div.setAttribute('class','media-card-infos');
         const h2 = document.createElement( 'h2' );
         h2.textContent = title;
+        const divLikes = document.createElement("div");
         const span =  document.createElement('span');
-        span.setAttribute('id', 'number-likes');
+        span.setAttribute('class', 'number-likes');
         const i = document.createElement('i');
         i.setAttribute("class", "fa-solid fa-heart");
+        i.setAttribute("data-liked",false);
+        i.addEventListener("click" ,function(e){
+            let nbLikes = Number(e.target.previousSibling.textContent) ;
+            let dataLiked =  e.target.getAttribute('data-liked');
+            console.log(dataLiked);
+           if(dataLiked == "true"){
+                e.target.previousSibling.textContent = nbLikes - 1;
+                e.target.setAttribute('data-liked',false);
+            }else{
+                e.target.previousSibling.textContent = nbLikes + 1;
+                e.target.setAttribute('data-liked',true);
+            }
+           
+        });
         span.textContent = likes + " ";
-        span.appendChild(i);
+        divLikes.appendChild(span);
+        divLikes.appendChild(i);
         div.appendChild(h2);
-        div.appendChild(span);
+        div.appendChild(divLikes);
 
         article.appendChild(div);
         

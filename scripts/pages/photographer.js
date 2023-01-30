@@ -57,7 +57,7 @@ const byTitle = (a,b) => {
 const byPopularity = (a,b) =>{
     aLikes = a.firstChild.getAttribute('data-likes');
     bLikes = b.firstChild.getAttribute('data-likes');
-    return (aLikes - bLikes);
+    return (bLikes - aLikes);
 };
 
 const byDate = (a,b) =>{
@@ -71,10 +71,17 @@ const byDate = (a,b) =>{
 };
 
 
-function sortMediaCards(Criteria){
+function sortMediaCards(nbCriteria){
+    if(nbCriteria == 1){
+        criteria = byPopularity;
+    }else if(nbCriteria == 2){
+        criteria = byDate;
+    }else if(nbCriteria == 3){
+        criteria = byTitle;
+    }
     const elements = document.querySelectorAll(".media-card");
     const items = Array.from(elements);
-    items.sort(Criteria);
+    items.sort(criteria);
     /*items.forEach(elt => {
         console.log(elt.firstChild.getAttribute('data-date'));
     });*/
@@ -91,5 +98,6 @@ async function init() {
     const  photographer  = await getPhotographer(id);
     displayData(photographer);
 };
+
 
 init();
