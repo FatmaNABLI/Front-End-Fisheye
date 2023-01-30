@@ -14,6 +14,7 @@ async function getPhotographer(id) {
 
  }
  async function displayData(photographer) {
+    //Affichchage de la partie photographe
     const photographerSection = document.querySelector(".photograph-header");
     const contact_button = document.querySelector(".contact_button");
     
@@ -29,7 +30,7 @@ async function getPhotographer(id) {
     //const userCardDOM = photographerModel.getUserCardDOM();
     //photographerSection.appendChild(userCardDOM);  
 
-    
+    //Affichage des réalisations du photographe
     const mediasSection = document.querySelector(".media");
     const { realisations } = await photographerModel.getRealisations();
     realisations.forEach((element,index) =>  {
@@ -43,6 +44,12 @@ async function getPhotographer(id) {
         const mediaCardDOM = mediaModel.getMediaCardDOM(index);
         mediasSection.appendChild(mediaCardDOM);
     });
+  
+    const spanTotalLikes = document.getElementById("total");
+    spanTotalLikes.textContent = await photographerModel.getTotalLikes();
+
+    const spanPrice = document.getElementById("price-photogtapher");
+    spanPrice.textContent = `${photographerModel.price}€/jour`;
 
     //document.querySelectorAll(".media-card img").forEach((img,index) => img.addEventListener("click", openLighBox));
 };

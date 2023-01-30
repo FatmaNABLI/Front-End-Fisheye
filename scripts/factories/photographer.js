@@ -1,5 +1,5 @@
 function photographerFactoryBase(data) {
-    const {name, portrait } = data;
+    const {name, portrait, price } = data;
 
     const picture = `assets/photographers/${portrait}`;
     /*function getPhoto(){
@@ -29,7 +29,21 @@ function photographerFactoryBase(data) {
             realisations: [...realisations]})
    }
 
-    return { name, picture, getUserCardDOM , getRealisations }
+   async function getTotalLikes(){
+        let totalLikes = 0;
+        // Récupération des media depuis le fichier JSON
+        const reponse = await fetch('data/photographers.json');
+        const datam = await reponse.json();
+        const medias = datam.media;
+        const realisations = medias.filter(media => media.photographerId == id);  
+        realisations.forEach(element => {
+            totalLikes += element.likes;
+        });
+
+        return(totalLikes);
+   }
+   
+    return { name , picture , price , getTotalLikes, getUserCardDOM , getRealisations }
 }
 
 function photographerFactory(data) {

@@ -56,13 +56,16 @@ function mediaFactory(data, type, photographerName) {
         i.addEventListener("click" ,function(e){
             let nbLikes = Number(e.target.previousSibling.textContent) ;
             let dataLiked =  e.target.getAttribute('data-liked');
-            console.log(dataLiked);
+            let spanTotalLikes = document.getElementById("total");
+        
            if(dataLiked == "true"){
                 e.target.previousSibling.textContent = nbLikes - 1;
                 e.target.setAttribute('data-liked',false);
+                spanTotalLikes.textContent = Number(spanTotalLikes.textContent) - 1;
             }else{
                 e.target.previousSibling.textContent = nbLikes + 1;
                 e.target.setAttribute('data-liked',true);
+                spanTotalLikes.textContent = Number(spanTotalLikes.textContent) + 1;
             }
            
         });
