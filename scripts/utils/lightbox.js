@@ -4,18 +4,19 @@ const prevBtn = document.querySelector("prev");
 const nextBtn = document.querySelector("next");
 let cslideIndex = 0;
 
-
-//const main = document.getElementById("main");
-//const modalCloseBtn = document.querySelector(".modal-close-btn");
-
-
 function closeLightbox() { 
     lightbox.style.display = "none";
+    lightbox.setAttribute('aria-hidden', 'true');
+    main.setAttribute('aria-hidden', 'false');
+    header.setAttribute('aria-hidden', 'false');
 }
 
 function openLighBox(){
     initLightBox();
     lightbox.style.display = "block";
+    lightbox.setAttribute('aria-hidden', 'false');
+    main.setAttribute('aria-hidden', 'true');
+    header.setAttribute('aria-hidden', 'true');
 }
 
 function currentSlide(index){
@@ -48,15 +49,18 @@ function showSlides(n) {
 
 document.addEventListener('keydown', (e) => {
     var code = e.code;
-    //lightbox.getAttribute("aria-hidden") == "false" &
-    if ( code === 'Escape') {
-        closeLightbox();
-    }
-    if (code == 'ArrowRight'){
-        nextSlide();
-    }
-    if(code == 'ArrowLeft'){
-        previousSlide();
+    if (lightbox.getAttribute("aria-hidden") == "false"){
+
+        if ( code === 'Escape') {
+            closeLightbox();
+        }
+        if (code == 'ArrowRight'){
+            nextSlide();
+        }
+        if(code == 'ArrowLeft'){
+            previousSlide();
+        }
+       
     }
    
   }, false);
@@ -69,11 +73,13 @@ function initLightBox(){
             const img = document.createElement("img");
             img.setAttribute('src',element.getAttribute('src'));
             img.setAttribute('class','carousel-item-img');
+            img.setAttribute('alt',element.getAttribute('alt'));
             carouselContent.appendChild (img);
         } else{
             const video = document.createElement( 'video' );
             video.setAttribute("controls","controls");
             video.setAttribute('class','carousel-item-img');
+            video.setAttribute('alt',element.getAttribute('alt'));
             const source = document.createElement("source");
             source.setAttribute('src', element.firstChild.getAttribute('src'));
             video.appendChild(source);

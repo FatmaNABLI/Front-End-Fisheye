@@ -19,9 +19,12 @@ function displayModal() {
 
 //Function to close modal
 
-function closeModal(id) {
+function closeModal() {
     //const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
+    main.setAttribute('aria-hidden', 'false');
+    header.setAttribute('aria-hidden', 'false');
+    modal.setAttribute('aria-hidden', 'true');
 }
 
 // Close modal when espace key is pressed
