@@ -19,14 +19,28 @@ async function getPhotographer(id) {
     const contact_button = document.querySelector(".contact_button");
     
     const photographerModel = photographerFactoryBase(photographer);
+    const article = document.createElement("article");
+    article.setAttribute('id', 'photograph-infos');
     const h1 = document.createElement( 'h1' );
     h1.textContent = photographerModel.name;
-    photographerSection.insertBefore(h1, contact_button );
+    const p1 = document.createElement('p');
+    p1.textContent = photographerModel.city + ", " + photographerModel.country;
+    const p2 = document.createElement('p');
+    p2.textContent = photographerModel.tagline;
 
+    article.appendChild(h1);
+    article.appendChild(p1);
+    article.appendChild(p2);
+    photographerSection.insertBefore(article, contact_button );
+
+
+    const divImg = document.createElement('div');
+    divImg.setAttribute('id', 'photograph-img')
     const img = document.createElement( 'img' );
-    img.setAttribute("src", photographerModel.picture)
-    img.setAttribute("alt", photographerModel.name)
-    photographerSection.appendChild(img);
+    img.setAttribute("src", photographerModel.picture);
+    img.setAttribute("alt", photographerModel.name);
+    divImg.appendChild(img);
+    photographerSection.appendChild(divImg);
     //const userCardDOM = photographerModel.getUserCardDOM();
     //photographerSection.appendChild(userCardDOM);  
 

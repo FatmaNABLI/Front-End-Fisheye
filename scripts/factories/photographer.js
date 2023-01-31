@@ -1,5 +1,5 @@
 function photographerFactoryBase(data) {
-    const {name, portrait, price } = data;
+    const {name, portrait, price,city , country, tagline } = data;
 
     const picture = `assets/photographers/${portrait}`;
     /*function getPhoto(){
@@ -43,7 +43,7 @@ function photographerFactoryBase(data) {
         return(totalLikes);
    }
    
-    return { name , picture , price , getTotalLikes, getUserCardDOM , getRealisations }
+    return { name , picture , price , city, country, tagline, getTotalLikes, getUserCardDOM , getRealisations }
 }
 
 function photographerFactory(data) {
@@ -65,7 +65,7 @@ function photographerFactory(data) {
         a.appendChild(img);
         a.appendChild(h2);
         const h3 = document.createElement('h3');
-        h3.textContent = city;
+        h3.textContent = city+ ", "+country;
         const p = document.createElement('p');
         p.textContent = tagline;
         const span = document.createElement('span');
