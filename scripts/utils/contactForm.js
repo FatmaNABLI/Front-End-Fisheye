@@ -11,7 +11,9 @@ function displayModal() {
     initTitleModal();
 	modal.style.display = "block";
     main.setAttribute('aria-hidden', 'true');
+    main.style.opacity = 0.5;
     header.setAttribute('aria-hidden', 'true');
+    header.style.opacity = 0.5;
     modal.setAttribute('aria-hidden', 'false');
     modalCloseBtn.focus();
 
@@ -23,7 +25,9 @@ function closeModal() {
     //const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
     main.setAttribute('aria-hidden', 'false');
+    main.style.opacity = 1;
     header.setAttribute('aria-hidden', 'false');
+    header.style.opacity = 1;
     modal.setAttribute('aria-hidden', 'true');
 }
 
