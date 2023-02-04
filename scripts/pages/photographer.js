@@ -58,7 +58,7 @@ async function getPhotographer(id) {
         const mediaCardDOM = mediaModel.getMediaCardDOM(index);
         mediasSection.appendChild(mediaCardDOM);
     });
-  
+    sortMediaCards(1);
     const spanTotalLikes = document.getElementById("total");
     spanTotalLikes.textContent = await photographerModel.getTotalLikes();
 

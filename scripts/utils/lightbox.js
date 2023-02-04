@@ -68,7 +68,7 @@ document.addEventListener('keydown', (e) => {
 function initLightBox(){
     const carouselContent = document.querySelector(".carousel-content");
     document.querySelectorAll(".media-card-content").forEach(element=>{
-        console.log(element.tagName);
+        //console.log(element.tagName);
         if(element.tagName == 'IMG'){
             const img = document.createElement("img");
             img.setAttribute('src',element.getAttribute('src'));
@@ -85,5 +85,8 @@ function initLightBox(){
             video.appendChild(source);
             carouselContent.appendChild (video);
         }    
+        const pTitre = document.createElement("p");
+        pTitre.textContent = element.getAttribute('alt');
+        carouselContent.appendChild(pTitre);
     });
 }

@@ -45,3 +45,19 @@ function initTitleModal(){
     let modalTitle = document.getElementById("modal-title");
     modalTitle.innerHTML = "Contactez-moi<br>"+photographe;
 }
+
+//
+document.querySelectorAll(".contact_button")[1].addEventListener("click", event => {
+    event.preventDefault();
+    let nom = document.getElementById("nom").value;
+    let prenom = document.getElementById("prenom").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+
+    document.getElementById("nom").value = "";
+    console.log("Nom & prenom: " + nom + " " + prenom);
+    console.log("email :\t" + email );
+    console.log("message : \t" + message);
+    closeModal();
+    alert("Votre message a été envoyé!")
+});
