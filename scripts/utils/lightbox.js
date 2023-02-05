@@ -69,24 +69,29 @@ function initLightBox(){
     const carouselContent = document.querySelector(".carousel-content");
     document.querySelectorAll(".media-card-content").forEach(element=>{
         //console.log(element.tagName);
+        let divImgCarousel  = document.createElement("div");
+        divImgCarousel.setAttribute('class','carousel-item-img');
         if(element.tagName == 'IMG'){
             const img = document.createElement("img");
             img.setAttribute('src',element.getAttribute('src'));
-            img.setAttribute('class','carousel-item-img');
+            //img.setAttribute('class','carousel-item-img');
             img.setAttribute('alt',element.getAttribute('alt'));
-            carouselContent.appendChild (img);
+            //carouselContent.appendChild (img);
+            divImgCarousel.appendChild(img);
         } else{
             const video = document.createElement( 'video' );
             video.setAttribute("controls","controls");
-            video.setAttribute('class','carousel-item-img');
+            //video.setAttribute('class','carousel-item-img');
             video.setAttribute('alt',element.getAttribute('alt'));
             const source = document.createElement("source");
             source.setAttribute('src', element.firstChild.getAttribute('src'));
             video.appendChild(source);
-            carouselContent.appendChild (video);
+            //carouselContent.appendChild (video);
+            divImgCarousel.appendChild(video);
         }    
         const pTitre = document.createElement("p");
         pTitre.textContent = element.getAttribute('alt');
-        carouselContent.appendChild(pTitre);
+        divImgCarousel.appendChild(pTitre);
+        carouselContent.appendChild(divImgCarousel);
     });
 }
