@@ -24,7 +24,7 @@ function photographerFactoryBase(data) {
         const datam = await reponse.json();
         const medias = datam.media;
         const realisations = medias.filter(media => media.photographerId == id); 
-        console.log(realisations);
+        //console.log(realisations);
         return ({
             realisations: [...realisations]})
    }
@@ -57,9 +57,10 @@ function photographerFactory(data) {
         //url.searchParams.append('id', id);
         let url = "photographer.html?id=" + id;
         a.setAttribute("href",url);
+        a.setAttribute("alt", name);
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
-        img.setAttribute("alt", name)
+        img.setAttribute("alt"," ");
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
         a.appendChild(img);
