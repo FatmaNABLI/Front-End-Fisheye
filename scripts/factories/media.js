@@ -52,6 +52,8 @@ function mediaFactory(data, type, photographerName) {
         span.setAttribute('class', 'number-likes');
         const i = document.createElement('i');
         i.setAttribute("class", "fa-solid fa-heart");
+        //Nom accessible
+        i.setAttribute("aria-label","likes")
         i.setAttribute("data-liked",false);
         i.addEventListener("click" ,function(e){
             let nbLikes = Number(e.target.previousSibling.textContent) ;

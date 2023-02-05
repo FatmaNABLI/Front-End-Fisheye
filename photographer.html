@@ -13,18 +13,20 @@
 
 <body>
   <header aria-hidden="false">
-    <a href="index.html"><img src="assets/images/logo.png" alt="Fisheye Home page" class="logo" /></a>
+    <a href="index.html" aria-label="Fisheye Home page"><img src="assets/images/logo.png" alt="Fisheye Home page"
+        class="logo" />
+    </a>
   </header>
   <main id="main" aria-hidden="false">
     <div class="photograph-header">
-      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+      <button class="contact_button" aria-label="Contact Me" onclick="displayModal()">Contactez-moi</button>
     </div>
     <div id="sort">
-      <p>Trier par </p>
+      <label for="selectCriteria">Trier par </label>
       <div class="custom-select">
-        <select>
+        <select id="selectCriteria" aria-label="Order by">
           <option value="0">Popularité</option>
-          <option value="1" onclick="sortMediaCards(1)">Popularité</option>
+          <option value="0">Popularité</option>
           <option value="1">Date</option>
           <option value="2">Titre</option>
         </select>
