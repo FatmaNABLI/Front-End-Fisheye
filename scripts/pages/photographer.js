@@ -71,6 +71,8 @@ async function getPhotographer(id) {
     //document.querySelectorAll(".media-card img").forEach((img,index) => img.addEventListener("click", openLighBox));
 }
 
+//Le tri par critères : date , popularité , titre
+
 const byTitle = (a,b) => {
     let aTitle = a.firstChild.firstChild.getAttribute('alt');
     let bTitle = b.firstChild.firstChild.getAttribute('alt');

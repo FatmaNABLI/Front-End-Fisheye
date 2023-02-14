@@ -2,7 +2,7 @@
 const lightbox= document.getElementById("lightbox");
 const prevBtn = document.querySelector("prev");
 const nextBtn = document.querySelector("next");
-let cslideIndex = 0;
+let slideIndex = 0;
 
 function closeLightbox() { 
     lightbox.style.display = "none";
@@ -35,14 +35,14 @@ function showSlides(n) {
     var i;
     var slides =  document.querySelectorAll(".carousel-item-img");
     slideIndex = n;
-    //var captionText = document.getElementById("caption");
+
     if (n == slides.length) {slideIndex = 0}
     if (n < 0) {slideIndex = slides.length-1}
     for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none";
     }
     slides[slideIndex].style.display = "block";
-    //captionText.innerHTML = dots[slideIndex-1].alt;
+  
   }
 
 // Close modal when espace key is pressed
