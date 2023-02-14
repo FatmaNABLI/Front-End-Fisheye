@@ -14,24 +14,25 @@ function mediaFactory(data, type, photographerName) {
     function getMediaCardDOM(index) {
         const article = document.createElement( 'article' );
         article.setAttribute('class', 'media-card');
-        article.tabIndex = index + 9;
-        
+        //article.tabIndex = index + 9;
+        const a = document.createElement("a");
+        a.setAttribute("aria-label","Lilac breasted roller, closeup view");
+        a.href = "javascript:openLighBox();currentSlide(" + index + ");" ;
         if (type == 'image'){
-            const a = document.createElement("a");
             const img = document.createElement( 'img' );
             img.setAttribute('class','media-card-content');
             img.setAttribute("src", chemin);
             img.setAttribute('alt',title);
             img.setAttribute('data-likes',likes);
             img.setAttribute('data-date' , date);
-            img.addEventListener('click',function(){
+            /*img.addEventListener('click',function(){
                 openLighBox();
                 currentSlide(index);
-            });
-            //a.href = "javascript:openLighBox();currentSlide(" + index + ");" ;
-            //a.appendChild(img);
-            //article.appendChild(a);
-            article.appendChild(img);
+            });*/
+          
+            a.appendChild(img);
+            
+            //article.appendChild(img);
         }else {
             const video = document.createElement( 'video' );
             video.setAttribute("controls","controls");
@@ -46,9 +47,11 @@ function mediaFactory(data, type, photographerName) {
             const source = document.createElement("source");
             source.setAttribute('src', chemin);
             video.appendChild(source);
-            article.appendChild(video);
+            a.appendChild(video);
+            //article.appendChild(video);
 
         }
+        article.appendChild(a);
         const div = document.createElement('div');
         div.setAttribute('class','media-card-infos');
         const h2 = document.createElement( 'h2' );

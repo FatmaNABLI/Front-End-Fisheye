@@ -107,7 +107,7 @@ function sortMediaCards(nbCriteria){
 
     const mediasSection = document.querySelector(".media");
     items.forEach((elt,index) => {
-        elt.tabIndex = 9 + index;
+        //elt.tabIndex = 9 + index;
         mediasSection.appendChild(elt);
 
     });

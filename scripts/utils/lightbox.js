@@ -48,7 +48,7 @@ function showSlides(n) {
 // Close modal when espace key is pressed
 
 document.addEventListener('keydown', (e) => {
-    console.log(e.target);
+    //console.log(e.target);
     var code = e.code;
     if (lightbox.getAttribute("aria-hidden") == "false"){
 
