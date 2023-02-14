@@ -1,0 +1,24 @@
+{
+  "name": "Front-End-Fisheye",
+  "version": "1.0.0",
+  "description": "Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^8.33.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FatmaNABLI/Front-End-Fisheye.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FatmaNABLI/Front-End-Fisheye/issues"
+  },
+  "homepage": "https://github.com/FatmaNABLI/Front-End-Fisheye#readme"
+}

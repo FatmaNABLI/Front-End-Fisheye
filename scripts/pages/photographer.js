@@ -23,11 +23,13 @@ async function getPhotographer(id) {
     article.setAttribute('id', 'photograph-infos');
     const h1 = document.createElement( 'h1' );
     h1.textContent = photographerModel.name;
+    h1.tabIndex = 2;
     const p1 = document.createElement('p');
     p1.textContent = photographerModel.city + ", " + photographerModel.country;
+    p1.tabIndex = 3;
     const p2 = document.createElement('p');
     p2.textContent = photographerModel.tagline;
-
+    p2.tabIndex = 4;
     article.appendChild(h1);
     article.appendChild(p1);
     article.appendChild(p2);
@@ -39,6 +41,7 @@ async function getPhotographer(id) {
     const img = document.createElement( 'img' );
     img.setAttribute("src", photographerModel.picture);
     img.setAttribute("alt", photographerModel.name);
+    img.tabIndex = 6;
     divImg.appendChild(img);
     photographerSection.appendChild(divImg);
     //const userCardDOM = photographerModel.getUserCardDOM();
@@ -66,33 +69,31 @@ async function getPhotographer(id) {
     spanPrice.textContent = `${photographerModel.price}€/jour`;
 
     //document.querySelectorAll(".media-card img").forEach((img,index) => img.addEventListener("click", openLighBox));
-};
+}
 
 const byTitle = (a,b) => {
-    aTitle = a.firstChild.getAttribute('alt');
-    bTitle = b.firstChild.getAttribute('alt');
-    console.log(bTitle);
+    let aTitle = a.firstChild.getAttribute('alt');
+    let bTitle = b.firstChild.getAttribute('alt');
+    //console.log(bTitle);
     return (aTitle.localeCompare(bTitle));
 };
 
 const byPopularity = (a,b) =>{
-    aLikes = a.firstChild.getAttribute('data-likes');
-    bLikes = b.firstChild.getAttribute('data-likes');
+    let aLikes = a.firstChild.getAttribute('data-likes');
+    let bLikes = b.firstChild.getAttribute('data-likes');
     return (bLikes - aLikes);
 };
 
 const byDate = (a,b) =>{
-    aDate = new Date (a.firstChild.getAttribute('data-date')).getTime();
-    bDate = new Date (b.firstChild.getAttribute('data-date')).getTime();
-    console.log(aDate);
-    console.log(bDate);
-    console.log(aDate - bDate);
-
+    let aDate = new Date (a.firstChild.getAttribute('data-date')).getTime();
+    let bDate = new Date (b.firstChild.getAttribute('data-date')).getTime();
+    //console.log(aDate - bDate);
     return (aDate-bDate);
 };
 
 
 function sortMediaCards(nbCriteria){
+    let criteria ;
     if(nbCriteria == 1){
         criteria = byPopularity;
     }else if(nbCriteria == 2){
@@ -103,12 +104,10 @@ function sortMediaCards(nbCriteria){
     const elements = document.querySelectorAll(".media-card");
     const items = Array.from(elements);
     items.sort(criteria);
-    /*items.forEach(elt => {
-        console.log(elt.firstChild.getAttribute('data-date'));
-    });*/
-    console.log(items);
+
     const mediasSection = document.querySelector(".media");
-    items.forEach(elt => {
+    items.forEach((elt,index) => {
+        elt.tabIndex = 9 + index;
         mediasSection.appendChild(elt);
 
     });
@@ -118,7 +117,7 @@ async function init() {
     // Récupère les datas des photographes
     const  photographer  = await getPhotographer(id);
     displayData(photographer);
-};
+}
 
 
 init();

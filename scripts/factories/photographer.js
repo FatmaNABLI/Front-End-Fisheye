@@ -2,12 +2,7 @@ function photographerFactoryBase(data) {
     const {name, portrait, price,city , country, tagline } = data;
 
     const picture = `assets/photographers/${portrait}`;
-    /*function getPhoto(){
-        const img = document.createElement( 'img' );
-        img.setAttribute("src", picture);
-        return img;
-    }*/
-
+    
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
         const img = document.createElement( 'img' );

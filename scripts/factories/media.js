@@ -14,7 +14,10 @@ function mediaFactory(data, type, photographerName) {
     function getMediaCardDOM(index) {
         const article = document.createElement( 'article' );
         article.setAttribute('class', 'media-card');
+        article.tabIndex = index + 9;
+        
         if (type == 'image'){
+            const a = document.createElement("a");
             const img = document.createElement( 'img' );
             img.setAttribute('class','media-card-content');
             img.setAttribute("src", chemin);
@@ -25,6 +28,9 @@ function mediaFactory(data, type, photographerName) {
                 openLighBox();
                 currentSlide(index);
             });
+            //a.href = "javascript:openLighBox();currentSlide(" + index + ");" ;
+            //a.appendChild(img);
+            //article.appendChild(a);
             article.appendChild(img);
         }else {
             const video = document.createElement( 'video' );

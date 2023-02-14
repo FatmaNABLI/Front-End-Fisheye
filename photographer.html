@@ -14,16 +14,17 @@
 <body>
   <header aria-hidden="false">
     <a href="index.html" aria-label="Fisheye Home page"><img src="assets/images/logo.png" alt="Fisheye Home page"
-        class="logo" />
+        class="logo" tabindex="1" />
     </a>
   </header>
   <main id="main" aria-hidden="false">
     <div class="photograph-header">
-      <button class="contact_button" aria-label="Contact Me" onclick="displayModal()">Contactez-moi</button>
+      <button class="contact_button" aria-label="Contact Me" tabindex="5"
+        onclick="displayModal()">Contactez-moi</button>
     </div>
     <div id="sort">
-      <label for="selectCriteria">Trier par </label>
-      <div class="custom-select">
+      <label for="selectCriteria" tabindex="7">Trier par </label>
+      <div class="custom-select" tabindex="8">
         <select id="selectCriteria" aria-label="Order by">
           <option value="0">Popularité</option>
           <option value="0">Popularité</option>
@@ -55,10 +56,10 @@
       </header>
       <form>
         <div>
-          <label id="lbl-nom" for="nom">Prénom</label>
-          <input id="nom" aria-labelledby="lbl-nom" autofocus />
-          <label id="lbl-prenom" for="prenom">Nom</label>
-          <input id="prenom" aria-labelledby="lbl-prenom" />
+          <label id="lbl-prenom" for="prenom">Prénom</label>
+          <input id="prenom" aria-labelledby="lbl-nom" />
+          <label id="lbl-nom" for="nom">Nom</label>
+          <input id="nom" aria-labelledby="lbl-prenom" />
           <label id="lbl-email" for="email">Email</label>
           <input id="email" type="email" aria-labelledby="lbl-email" />
           <label id="lbl-message" for="message">Votre message</label>
@@ -91,10 +92,11 @@
 
   <script src="/scripts/factories/photographer.js"></script>
   <script src="scripts/factories/media.js"></script>
-  <script src="/scripts/pages/photographer.js"></script>
   <script src="/scripts/utils/contactForm.js"></script>
   <script src="/scripts/utils/lightbox.js"></script>
   <script src="/scripts/utils/customSelect.js"></script>
+  <script src="/scripts/pages/photographer.js"></script>
+
 
 </body>
 

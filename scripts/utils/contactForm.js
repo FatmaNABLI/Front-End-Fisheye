@@ -15,8 +15,8 @@ function displayModal() {
     header.setAttribute('aria-hidden', 'true');
     header.style.opacity = 0.5;
     modal.setAttribute('aria-hidden', 'false');
-    modalCloseBtn.focus();
-
+    //modalCloseBtn.focus();
+    document.getElementById("prenom").focus({focusVisible:true});
 }
 
 //Function to close modal
