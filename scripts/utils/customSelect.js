@@ -46,10 +46,10 @@ for (i = 0; i < l; i++) {
         h.click();
     });
     
-    c.setAttribute("onclick" , ()=> {
+    /*c.setAttribute("onclick" , ()=> {
       console.log(c.textContent);
-    console.log(c.getAttribute('data-index'));
-    });
+      console.log(c.getAttribute('data-index'));
+    });*/
     b.appendChild(c);
   }
   x[i].appendChild(b);

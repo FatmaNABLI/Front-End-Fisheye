@@ -72,21 +72,21 @@ async function getPhotographer(id) {
 }
 
 const byTitle = (a,b) => {
-    let aTitle = a.firstChild.getAttribute('alt');
-    let bTitle = b.firstChild.getAttribute('alt');
+    let aTitle = a.firstChild.firstChild.getAttribute('alt');
+    let bTitle = b.firstChild.firstChild.getAttribute('alt');
     //console.log(bTitle);
     return (aTitle.localeCompare(bTitle));
 };
 
 const byPopularity = (a,b) =>{
-    let aLikes = a.firstChild.getAttribute('data-likes');
-    let bLikes = b.firstChild.getAttribute('data-likes');
+    let aLikes = a.firstChild.firstChild.getAttribute('data-likes');
+    let bLikes = b.firstChild.firstChild.getAttribute('data-likes');
     return (bLikes - aLikes);
 };
 
 const byDate = (a,b) =>{
-    let aDate = new Date (a.firstChild.getAttribute('data-date')).getTime();
-    let bDate = new Date (b.firstChild.getAttribute('data-date')).getTime();
+    let aDate = new Date (a.firstChild.firstChild.getAttribute('data-date')).getTime();
+    let bDate = new Date (b.firstChild.firstChild.getAttribute('data-date')).getTime();
     //console.log(aDate - bDate);
     return (aDate-bDate);
 };
@@ -107,7 +107,6 @@ function sortMediaCards(nbCriteria){
 
     const mediasSection = document.querySelector(".media");
     items.forEach((elt,index) => {
-        //elt.tabIndex = 9 + index;
         mediasSection.appendChild(elt);
 
     });

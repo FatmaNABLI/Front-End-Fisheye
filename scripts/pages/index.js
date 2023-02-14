@@ -3,7 +3,7 @@
         const reponse = await fetch('data/photographers.json');
         const data = await reponse.json();
         const photographers = data.photographers;
-        console.log(photographers);
+        //console.log(photographers);
         // et bien retourner le tableau photographers seulement une fois récupéré
         return ({
             photographers: [...photographers]})
