@@ -109,6 +109,7 @@ function sortMediaCards(nbCriteria){
 
     const mediasSection = document.querySelector(".media");
     items.forEach((elt,index) => {
+        elt.firstChild.href = "javascript:openLighBox();currentSlide(" + index + ");" ;
         mediasSection.appendChild(elt);
 
     });

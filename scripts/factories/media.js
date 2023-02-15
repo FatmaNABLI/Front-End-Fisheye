@@ -40,10 +40,10 @@ function mediaFactory(data, type, photographerName) {
             video.setAttribute('alt',title);
             video.setAttribute('data-likes',likes);
             video.setAttribute('data-date' , date);
-            video.addEventListener('click',function(){
+            /*video.addEventListener('click',function(){
                 openLighBox();
                 currentSlide(index);
-            });
+            });*/
             const source = document.createElement("source");
             source.setAttribute('src', chemin);
             video.appendChild(source);
