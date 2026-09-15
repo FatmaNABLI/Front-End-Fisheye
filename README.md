@@ -42,6 +42,9 @@ Une attention particulière a été portée à l'accessibilité du site :
 - Application des bonnes pratiques d'accessibilité
 - Écriture d'un code JavaScript maintenable
 
+## 🌐 Projet en ligne
+
+👉 [Voir le projet FishEye](https://fatmanabli.github.io/Front-End-Fisheye/)
 
 ## 📚 Contexte
 
